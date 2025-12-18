@@ -25,6 +25,28 @@ void degreetwo(double a, double b, double c) {
     }
 }
 
+int sum(int *arr, int n)
+{
+    int s = 0;
+    for (int i = 0; i < n; i++)
+        s += arr[i];
+    return s;
+}
+int tafrigh(int *arr, int n)
+{
+    int result = arr[0];
+    for (int i = 1; i < n; i++)
+        result -= arr[i];
+    return result;
+}
+int mul(int *arr, int n)
+{
+    int result = 1;
+    for (int i = 0; i < n; i++)
+        result *= arr[i];
+    return result;
+}
+
 int main() {
 
     return 0;
