@@ -26,18 +26,6 @@ void degreetwo(double a, double b, double c) {
 }
 
 int main() {
-    double a, b, c;
-    cout << "Please enter a, b and c variables : " << "\n";
-    cin >> a >> b >> c;
-    if(a == 0 && b == 0) {
-        cout << "No answer." << "\n";
-        return 0;
-    }
-    if(a == 0) {
-        degreeone(b, c);       
-    }
-    else if(a != 0) {
-        degreetwo(a, b ,c);
-    }
+
     return 0;
 }
