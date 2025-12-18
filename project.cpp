@@ -1,14 +1,15 @@
 #include <iostream>
 #include <cmath>
-#include <iomanip>
 using namespace std;
 
-void degreeone(double b, double c) {
+void degreeone (double b, double c)
+{
     double answer = -c / b;
     cout << answer << " ";
 }
 
-void degreetwo(double a, double b, double c) {
+void degreetwo (double a, double b, double c)
+{
     double answer1, answer2;
     double delta = b * b - 4 * a * c;
     if(delta < 0) {
@@ -32,6 +33,7 @@ int sum(int *arr, int n)
         s += arr[i];
     return s;
 }
+
 int tafrigh(int *arr, int n)
 {
     int result = arr[0];
@@ -39,6 +41,7 @@ int tafrigh(int *arr, int n)
         result -= arr[i];
     return result;
 }
+
 int mul(int *arr, int n)
 {
     int result = 1;
@@ -47,7 +50,35 @@ int mul(int *arr, int n)
     return result;
 }
 
-int main() {
+int Factorial (int n)
+{
+    if (n == 2 || n == 1 || n == 0) return n;
+    return n * Factorial(n - 1);
+}
+
+int C (int n, int k)
+{
+    return Factorial(n) / (Factorial(k) * Factorial(n - k));
+}
+
+int GCD (int a, int b)
+{
+    a = abs(a);
+    b = abs(b);
+    if (a == 0) return b;
+    if (b == 0) return a;
+    if (a == b) return a;
+    if (a > b) return GCD(a % b, b);
+    return GCD(a, b % a);
+}
+
+int LCM (int a, int b)
+{
+    return abs(a * b) / GCD(a, b); 
+}
+
+int main()
+{
 
     return 0;
 }
