@@ -2,6 +2,26 @@
 #include <cmath>
 using namespace std;
 
+void Start ()
+{
+    cout << "Please choose one of the following options:\n1. Simple Calculator\n2. Equation\n3. Advanced Calculator\n4. Exit\n";
+}
+
+void Error ()
+{
+    cout << "Invalid choice, please re-start the program.\n"; 
+}
+
+void SecondCaseMenu ()
+{
+    cout << "What type of equation do you want to solve?\n1. Linear (First Degree)\n2. Quadratic (Second Degree)\n";
+}
+
+void ThirdCaseMenu ()
+{
+    cout << "Please choose one of the following options:\n1. N Choose K\n2. Greatest Common Divisor\n3. Least Common Multiple\n";
+}
+
 void degreeone (double b, double c)
 {
     double answer = -c / b;
@@ -79,6 +99,95 @@ int LCM (int a, int b)
 
 int main()
 {
-
+    cout << "Welcome!\n";
+    short x;
+    Start();
+    cin >> x;
+    const int MAX = 100000;
+    switch (x)
+    {
+        case 1: //Simple Calc
+        int nn;
+        cout << "How many numbers?\n";
+        cin >> nn;
+        int ar[MAX];
+        cout << "Enter " << nn << " numbers:\n";
+        for (int i = 0; i < nn; i++) cin >> ar[i];
+        cout << "Sum: " << sum(ar, nn) << endl << "Mult: " << mul(ar, nn) << endl << "Subtraction: " << tafrigh(ar, nn) << endl;
+        break;
+        case 2: //Equation
+        SecondCaseMenu();
+        short degree;
+        cin >> degree;
+        switch (degree)
+        {
+            case 1: //Linear (First Degree)
+            cout << "ax + b = 0\n";
+            float a, b;
+            cout << "a = ";
+            cin >> a;
+            cout << "b = ";
+            cin >> b;
+            degreeone(a, b);
+            break;
+            case 2: //Quadratic (Second Degree)
+            cout << "ax^2 + bx + c = 0\n";
+            float m, z, c;
+            cout << "a = ";
+            cin >> m;
+            cout << "b = ";
+            cin >> z;
+            cout << "c = ";
+            cin >> c;
+            degreetwo(m, z, c);
+            break;
+            default: //Any other degrees
+            Error();
+            break;
+        }
+        break;
+        case 3: //Advanced Calc
+        short option;
+        ThirdCaseMenu();
+        cin >> option;
+        switch (option)
+        {
+            case 1: // C (n, k)
+            cout << "C(n, k)\n";
+            int n, k;
+            cout << "n = ";
+            cin >> n;
+            cout << "k = ";
+            cin >> k;
+            cout << "C(" << n << ", " << k << ") = " << C(n, k) << endl;
+            break;
+            case 2: //GCD
+            cout << "(a, b)\n";
+            int o, p;
+            cout << "a = ";
+            cin >> o;
+            cout << "b = ";
+            cin >> p;
+            cout << "(" << o << ", " << p << ") = " << GCD(o, p) << endl;
+            break;
+            case 3: //LCM
+            cout << "[a, b]\n";
+            int l, h;
+            cout << "a = ";
+            cin >> l;
+            cout << "b = ";
+            cin >> h;
+            cout << "[" << l << ", " << h << "] = " << LCM(l, h) << endl;
+            break;
+            default:
+            Error();
+            break;
+        }
+        case 4: //Exit
+        break;
+        default:
+        Error();
+        break;
+    }
     return 0;
 }
